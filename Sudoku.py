@@ -18,6 +18,12 @@ class Sudoku:
     def __init__(self, grid):
         self.grid = grid
 
+    def __str__(self):
+        string = ""
+        for row in self.grid:
+            string += str(row) + "\n"
+        return string
+
     def getSquare(self, r, c):
         row1 = (r//3)*3
         row2 = row1 + 3
@@ -74,10 +80,6 @@ class Sudoku:
         else:
             return True
 
-    def printBoard(self):
-        for row in self.grid:
-            print(row)
-
     @staticmethod
     def nextMove(r, c):
         if c == 8:
@@ -131,6 +133,7 @@ if __name__ == "__main__":
     sudoku = Sudoku(grid)
     with Timer('Sudoku solver'):
         sudoku.solve()
+        print(str(sudoku))
 
 
     
